@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://js.braintreegateway.com/web/dropin/1.30.1/js/dropin.min.js"></script>
+</head>
+<body>
+    <div id="dropin-container"></div>
+    <button id="submit-button">Submit Payment</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/braintree/token')
+                .then(response => response.text())
+                .then(clientToken => {
+                    braintree.dropin.create({
+                        authorization: clientToken,
+                        container: '#dropin-container'
+                    }, function (createErr, instance) {
+                        var button = document.querySelector('#submit-button');
+                        button.addEventListener('click', function () {
+                            instance.requestPaymentMethod(function (err, payload) {
+                                if (err) {
+                                    console.log('Error:', err);
+                                    return;
+                                }
+                                // Send nonce to your server
+                                fetch('/braintree/checkout', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/x-www-form-urlencoded'
+                                    },
+                                    body: `nonce=${payload.nonce}&amount=10.00`
+                                }).then(function (response) {
+                                    return response.text();
+                                }).then(function (data) {
+                                    console.log('Payment response:', data);
+                                });
+                            });
+                        });
+                    });
+                });
+        });
+    </script>
+</body>
+</html>
