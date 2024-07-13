@@ -13,7 +13,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.*;
-import com.web.marriage.course.entity.PageResponse;
+
+import com.web.marriage.blog.entity.PageResponse;
 import com.web.marriage.email.EmailService;
 import com.web.marriage.jwt.JwtResponse;
 import com.web.marriage.jwt.JwtService;

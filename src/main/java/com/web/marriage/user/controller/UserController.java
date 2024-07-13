@@ -18,9 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.web.marriage.blog.entity.PageResponse;
 import com.web.marriage.constants.ServerConstants;
-
-import com.web.marriage.course.entity.PageResponse;
 import com.web.marriage.dto.ErrorResponseDto;
 import com.web.marriage.dto.ResponseDto;
 import com.web.marriage.user.dto.LoginDTO;

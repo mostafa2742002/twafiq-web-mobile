@@ -1,4 +1,4 @@
-package com.web.marriage.course.entity;
+package com.web.marriage.blog.entity;
 
 import java.util.List;
 
