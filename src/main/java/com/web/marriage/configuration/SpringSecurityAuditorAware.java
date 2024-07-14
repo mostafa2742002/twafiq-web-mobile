@@ -20,8 +20,8 @@ public class SpringSecurityAuditorAware implements AuditorAware<String> {
         Object principal = authentication.getPrincipal();
         String username;
 
-        if (principal instanceof UserDetails) {
-            username = ((UserDetails) principal).getUsername();
+        if (principal instanceof UserDetails details) {
+            username = details.getUsername();
         } else {
             username = principal.toString();
         }

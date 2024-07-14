@@ -20,20 +20,20 @@ public class PaymentController {
     private final PaymentService paymentService;
 
     @GetMapping("/create-payment-intent")
-    public ResponseEntity<ResponseDto> createPaymentIntent(@RequestParam("amount") int amount,
+    public ResponseEntity<ResponseDto> createPaymentIntent(@RequestParam int amount,
             @RequestParam("course_id") String courseId, @RequestParam("user_id") String userId,
             @RequestParam("expiry_date") int expiryDate) {
         return paymentService.createPaymentIntent(amount, courseId, userId, expiryDate);
     }
 
     @GetMapping("/create-verify-intent")
-    public ResponseEntity<ResponseDto> createVerifyIntent(@RequestParam("amount") int amount,
+    public ResponseEntity<ResponseDto> createVerifyIntent(@RequestParam int amount,
             @RequestParam("user_id") String userId) {
         return paymentService.createVerifyIntent(amount, userId);
     }
 
     @GetMapping("/create-add-user-intent")
-    public ResponseEntity<ResponseDto> createAddUserIntent(@RequestParam("amount") int amount,
+    public ResponseEntity<ResponseDto> createAddUserIntent(@RequestParam int amount,
             @RequestParam("user_id") String userId, @RequestParam("target_id") String targetId) {
         return paymentService.createAddUserIntent(amount, userId, targetId);
     }

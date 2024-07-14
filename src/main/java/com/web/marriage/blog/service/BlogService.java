@@ -46,7 +46,7 @@ public class BlogService {
         boolean isUpdated = false;
         Blog blog = BlogMapper.toBlog(blogDTO);
         Optional<Blog> blogOptional = blogRepository.findById(blog.getId());
-        if (!blogOptional.isPresent())
+        if (blogOptional.isEmpty())
             throw new ResourceNotFoundException("Blog", "Blog Id", blogDTO.getId());
 
         blogRepository.save(blog);

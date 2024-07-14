@@ -112,8 +112,8 @@ public class BlogController {
     })
     @GetMapping("/blogs")
     public ResponseEntity<PageResponse<Blog>> findAllCourses(
-            @RequestParam(name = "page", defaultValue = "0", required = false) int page,
-            @RequestParam(name = "size", defaultValue = "10", required = false) int size) {
+            @RequestParam(defaultValue = "0", required = false) int page,
+            @RequestParam(defaultValue = "10", required = false) int size) {
         PageResponse<Blog> courses = blogService.findAllCourses(page, size);
         return ResponseEntity
                 .status(HttpStatus.OK)

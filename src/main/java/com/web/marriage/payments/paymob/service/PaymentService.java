@@ -75,8 +75,7 @@ public class PaymentService {
         .retrieve()
         .bodyToMono(PaymentResponse.class)
         .doOnError(error -> {
-          if (error instanceof WebClientResponseException) {
-            WebClientResponseException we = (WebClientResponseException) error;
+          if (error instanceof WebClientResponseException we) {
             System.out.println("Response Body: " + we.getResponseBodyAsString());
             System.out.println("Status Text: " + we.getStatusText());
           }
@@ -148,8 +147,7 @@ public class PaymentService {
         .retrieve()
         .bodyToMono(PaymentResponse.class)
         .doOnError(error -> {
-          if (error instanceof WebClientResponseException) {
-            WebClientResponseException we = (WebClientResponseException) error;
+          if (error instanceof WebClientResponseException we) {
             System.out.println("Response Body: " + we.getResponseBodyAsString());
             System.out.println("Status Text: " + we.getStatusText());
           }
@@ -221,8 +219,7 @@ public class PaymentService {
         .retrieve()
         .bodyToMono(PaymentResponse.class)
         .doOnError(error -> {
-          if (error instanceof WebClientResponseException) {
-            WebClientResponseException we = (WebClientResponseException) error;
+          if (error instanceof WebClientResponseException we) {
             System.out.println("Response Body: " + we.getResponseBodyAsString());
             System.out.println("Status Text: " + we.getStatusText());
           }

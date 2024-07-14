@@ -173,11 +173,11 @@ public class UserController {
     })
     @GetMapping("/courses")
     public ResponseEntity<PageResponse<User>> findAllUsers(
-            @RequestParam(name = "page", defaultValue = "0", required = false) int page,
-            @RequestParam(name = "size", defaultValue = "10", required = false) int size,
-            @RequestParam(name = "nationality",defaultValue = "null", required = false) String nationality,
-            @RequestParam(name = "countryOfResidence", defaultValue = "null",required = false) String countryOfResidence,
-            @RequestParam(name = "maritalStatus", defaultValue = "null" ,required = false) String maritalStatus) {
+            @RequestParam(defaultValue = "0", required = false) int page,
+            @RequestParam(defaultValue = "10", required = false) int size,
+            @RequestParam(defaultValue = "null", required = false) String nationality,
+            @RequestParam(defaultValue = "null",required = false) String countryOfResidence,
+            @RequestParam(defaultValue = "null" ,required = false) String maritalStatus) {
         PageResponse<User> users = userService.findAllUsers(page, size,nationality,countryOfResidence,maritalStatus);
         return ResponseEntity
                 .status(HttpStatus.OK)
