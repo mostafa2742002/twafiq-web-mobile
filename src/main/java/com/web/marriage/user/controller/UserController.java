@@ -171,7 +171,7 @@ public class UserController {
             @ApiResponse(responseCode = "200", description = "HTTP Status OK"),
             @ApiResponse(responseCode = "500", description = "HTTP Status Internal Server Error", content = @Content(schema = @Schema(implementation = ErrorResponseDto.class)))
     })
-    @GetMapping("/courses")
+    @GetMapping("/users")
     public ResponseEntity<PageResponse<User>> findAllUsers(
             @RequestParam(defaultValue = "0", required = false) int page,
             @RequestParam(defaultValue = "10", required = false) int size,
